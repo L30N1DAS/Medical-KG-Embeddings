@@ -1,0 +1,8 @@
+**/.~lock.*.tsv#
+**/.~lock.*.csv#
+**/.ipynb_checkpoints
+
+tsv_dir/
+transe-input/
+output-ttl/
+input-data/
