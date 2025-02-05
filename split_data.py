@@ -2,16 +2,9 @@ import pandas as pd
 import os
 import re
 import random
+import utils
 
 
-def read_all_save_unique(df):
-
-    tmp = df.copy().drop('File', axis = 1)
-    tmp = tmp.drop_duplicates()
-
-    #jk duplicates can be on different days
-    #fdf = tmp.merge(df, how = 'left', on = ['Subject', 'Predicate', 'Object'])
-    return tmp  
 
 
 def shuffle_save(df, type_val, output_dir):
@@ -108,17 +101,17 @@ if __name__ == '__main__':
     # Load the TSV file
     tsv_dir = "tsv_dir"
     df = pd.read_csv(os.path.join(tsv_dir, "pharmacy_output_data.tsv"), sep='\t')
-    read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "pharmacy_unique.tsv"), sep='\t', index=False)
+    utils.read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "pharmacy_unique.tsv"), sep='\t', index=False)
 
     # Shuffle and save the data
     #shuffle_save(df, 'pharmacy', 'transe-input')
 
     df = pd.read_csv(os.path.join(tsv_dir, "patient_output_data.tsv"), sep='\t')
-    read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "patient_unique.tsv"), sep='\t', index=False)
+    utils.read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "patient_unique.tsv"), sep='\t', index=False)
     #shuffle_save(df, 'patient', 'transe-input')
 
     df = pd.read_csv(os.path.join(tsv_dir, "imaging_output_data.tsv"), sep='\t')
-    read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "imaging_unique.tsv"), sep='\t', index=False)
+    utils.read_all_save_unique(df).to_csv(os.path.join(tsv_dir, "imaging_unique.tsv"), sep='\t', index=False)
     #shuffle_save(df, 'imaging', 'transe-input')
 
     # Load the TSV file

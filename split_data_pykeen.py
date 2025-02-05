@@ -1,7 +1,5 @@
 from pykeen.triples import TriplesFactory
-
 from pykeen.pipeline import pipeline
-
 import utils
 
 #from pykeen.datasets.nations import NATIONS_TRAIN_PATH
@@ -35,26 +33,26 @@ if __name__ == "__main__":
 
         training, testing, validation = tf.split([.8, .1, .1])
 
-        # result = pipeline(
+        result = pipeline(
 
-        #     training=training,
+            training=training,
 
-        #     testing=testing,
+            testing=testing,
 
-        #     validation=validation,
+            validation=validation,
 
-        #     model='TransE',
+            model='TransE',
 
-        #     stopper='early',
+            stopper='early',
 
-        #     epochs=5,  # short epochs for testing - you should go
+            epochs=5,  # short epochs for testing - you should go
 
-        #             # higher, especially with early stopper enabled
+                    # higher, especially with early stopper enabled
 
-        # )
+        )
 
         print(vars(training).keys())
         print(training.metadata)
         #print(training.entity_labeling) #mapped_triples is tensors
 
-        #result.save_to_directory('transe-input-pykeen')
+        result.save_to_directory('transe-input-pykeen')
