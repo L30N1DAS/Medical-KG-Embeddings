@@ -1,9 +1,11 @@
 **/.~lock.*.tsv#
 **/.~lock.*.csv#
 **/.ipynb_checkpoints
+**/__pycache__
 
 tsv_dir/
 transe-input/
 transe-input-unique/
+transe-input-pykeen/
 output-ttl/
 input-data/
